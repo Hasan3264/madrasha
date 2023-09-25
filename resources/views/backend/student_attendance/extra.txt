@@ -1,0 +1,320 @@
+<!-- <form action="{{route('details_attendance')}}" method="post">
+    @csrf
+    <div class="academic_info student_search">
+
+
+    <div class="container">
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Session <span class="text-danger">*</span></label>
+                    <select name="session_name" id="">
+                        <option selected disabled>Select Session</option>
+                        @foreach($all_session as $item)
+                        <option value="{{ $item->name }}" {{ old('session_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                        @endforeach
+                    </select><br>
+                     @error('session_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Class Name <span class="text-danger">*</span></label>
+            <select name="class_name" id="">
+                <option selected disabled>Select Class</option>
+            @foreach($all_medium as $medium)
+                <option value="{{ $medium->medium_code }} class="bold_text" disabled>{{ $medium->medium_name }}</option>
+                    @foreach($all_class as $item)
+                    @if($item->medium_name == $medium->medium_code)
+                    <option value="{{$item->class_code}}" class="bold_text"  {{ old('class_name') == $item->class_code ? 'selected' : '' }}>{{$item->class_name}}</option>
+                    @endif
+                    @endforeach
+             @endforeach
+            </select>
+                                        <br>
+                     @error('class_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Shift <span class="text-danger">*</span></label>
+                <select name="shift_id" id="">
+                                        <option selected disabled>Select Shift</option>
+                                            @foreach($all_shift as $item)
+                                            <option value="{{ $item->id }}" {{ old('shift_id') == $item->id ? 'selected' : '' }}>{{ $item->shift_name}}-({{ $medium->mediumName($item->medium_name)}})</option>
+                                            @endforeach
+                                        </select>
+                                        <br>
+                     @error('shift_id')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+        </div>
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Section <span class="text-danger">*</span></label>
+                <select name="section_name" id="" required>
+                                    <option selected disabled>Select Section</option>
+                                            @foreach($all_section as $item)
+                                            <option value="{{ $item->name}}"  {{ old('section_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                                            @endforeach
+                                    </select>
+                                    <br>
+                     @error('section_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Student <span class="text-danger">*</span></label>
+                <select name="student" id="" required class="@error('student') is-invalid @enderror">
+                                    <option selected disabled>Select Student</option>
+                                    @foreach($all_student as $item)
+                                    <option value="{{$item->id}}"  {{ old('student') == $item->id ? 'selected' : '' }}>{{$item->student_id}} - {{$item->student_name_en}}</option>
+                                    @endforeach
+                                </select>
+                                <br>
+                     @error('student')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div><br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Month <span class="text-danger">*</span></label>
+                <select name="month" id="">
+                    <option disabled selected>Select Month</option>
+                    @foreach($month as $item)
+                        <option value="{{ $item }}"  {{ old('month') == $item ? 'selected' : '' }}>{{ $item }}</option>
+                    @endforeach
+                </select>
+                <br>
+                     @error('month')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+        </div>
+
+
+        <div class="row mt-3 mb-4">
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Year</label>
+                <select name="year" id="">
+                    <option disabled selected>Select Year</option>
+                    @foreach($year as $item)
+                        <option value="{{ $item }}"  {{ old('year') == $item ? 'selected' : '' }}>{{ $item }}</option>
+                    @endforeach
+                </select>
+                <br>
+                     @error('year')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <p class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Submit</button>
+    </p>
+</form> -->
+
+
+
+<!-- <form action="{{route('attendance_summary')}}" method="post">
+    @csrf
+    <div class="academic_info student_search">
+
+
+    <div class="container">
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Session <span class="text-danger">*</span></label>
+                    <select name="session_name" id="">
+                        <option selected disabled>Select Session</option>
+                        @foreach($all_session as $item)
+                        <option value="{{ $item->name }}" {{ old('session_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                        @endforeach
+                    </select><br>
+                     @error('session_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Class Name <span class="text-danger">*</span></label>
+            <select name="class_name" id="">
+                <option selected disabled>Select Class</option>
+            @foreach($all_medium as $medium)
+                <option value="{{ $medium->medium_code }} class="bold_text" disabled>{{ $medium->medium_name }}</option>
+                    @foreach($all_class as $item)
+                    @if($item->medium_name == $medium->medium_code)
+                    <option value="{{$item->class_code}}" class="bold_text"  {{ old('class_name') == $item->class_code ? 'selected' : '' }}>{{$item->class_name}}</option>
+                    @endif
+                    @endforeach
+             @endforeach
+            </select><br>
+                    @error('class_name')
+                    <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Shift <span class="text-danger">*</span></label>
+                <select name="shift_id" id="">
+                                        <option selected disabled>Select Shift</option>
+                                            @foreach($all_shift as $item)
+                                            <option value="{{ $item->id }}" {{ old('shift_id') == $item->id ? 'selected' : '' }}>{{ $item->shift_name}}-({{ $medium->mediumName($item->medium_name)}})</option>
+                                            @endforeach
+                                        </select>
+                                        <br>
+                     @error('shift_id')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+        </div>
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Section <span class="text-danger">*</span></label>
+                <select name="section_name" id="" required>
+                                    <option selected disabled>Select Section</option>
+                                            @foreach($all_section as $item)
+                                            <option value="{{ $item->name}}"  {{ old('section_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                                            @endforeach
+                                    </select>
+                                    <br>
+                     @error('section_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                    <label for="">Date <span class="text-danger">*</span></label>
+                    <input type="date" name="date" id="" value="{{old('date')}}"><br>
+                    @error('date')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div><br><br>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <p class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Submit</button>
+    </p>
+</form> -->
+
+
+
+<!-- <form action="{{route('attendance_summary_monthly')}}" method="post">
+    @csrf
+    <div class="academic_info student_search">
+
+
+    <div class="container">
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Session <span class="text-danger">*</span></label>
+                    <select name="session_name" id="" required>
+                        <option selected disabled>Select Session</option>
+                        @foreach($all_session as $item)
+                        <option value="{{ $item->name }}" {{ old('session_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                        @endforeach
+                    </select><br>
+                     @error('session_name')
+                    <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Class Name <span class="text-danger">*</span></label>
+            <select name="class_name" id="">
+                <option selected disabled>Select Class</option>
+            @foreach($all_medium as $medium)
+                <option value="{{ $medium->medium_code }} class="bold_text" disabled>{{ $medium->medium_name }}</option>
+                    @foreach($all_class as $item)
+                    @if($item->medium_name == $medium->medium_code)
+                    <option value="{{$item->class_code}}" class="bold_text"  {{ old('class_name') == $item->class_code ? 'selected' : '' }}>{{$item->class_name}}</option>
+                    @endif
+                    @endforeach
+             @endforeach
+            </select><br>
+                    @error('class_name')
+                    <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Shift <span class="text-danger">*</span></label>
+                <select name="shift_id" id="">
+                                        <option selected disabled>Select Shift</option>
+                                            @foreach($all_shift as $item)
+                                            <option value="{{ $item->id }}" {{ old('shift_id') == $item->id ? 'selected' : '' }}>{{ $item->shift_name}}-({{ $medium->mediumName($item->medium_name)}})</option>
+                                            @endforeach
+                                        </select>
+                                        <br>
+                     @error('shift_id')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+        </div>
+
+        <div class="row mt-3 mb-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="">Section <span class="text-danger">*</span></label>
+                <select name="section_name" id="" required>
+                                    <option selected disabled>Select Section</option>
+                                            @foreach($all_section as $item)
+                                            <option value="{{ $item->name}}"  {{ old('section_name') == $item->name ? 'selected' : '' }}>{{ $item->name}}</option>
+                                            @endforeach
+                                    </select>
+                                    <br>
+                     @error('section_name')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div> <br><br>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                    <label for="">Month <span class="text-danger">*</span></label>
+                    <input type="date" name="date" id="" value="{{old('date')}}"><br>
+                    @error('date')
+                        <span style="color: red;">{{ $message }}</span>
+                    @enderror
+            </div><br><br>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+    <p class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Submit</button>
+    </p>
+</form> -->
