@@ -18,16 +18,6 @@
                                 <option value="{{$role->id}}">{{$role->name}}</option>
                                  @endforeach
                             </select>
-                            <label for="branch">Branch <span>*</span></label>
-                            <select id="branch" name="branch" class="es-add-select">
-                                <option value="">Select Branch</option>
-                                @foreach ($branchs as $branch)
-                                <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
-                                @endforeach
-                            </select>
-                            @error('subject')
-                            <strong class="text-danger">{{$message}}</strong>
-                            @enderror
 
                         </div>
 

@@ -1,12 +1,17 @@
 @extends('layouts.AdminPanal')
 @section('content')
-        <div class="u-body">
-
-<section class="es-form-area">
-    <div class="card">
-        <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-            <h2 class="text-white mb-0">Academic Holiday Update</h2>
-        </header>
+@can('watch')
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+<div class="u-body">
+    <section class="es-form-area">
+        <div class="card">
+            <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                <h2 class="text-white mb-0">Academic Holiday Update</h2>
+            </header>
             <div class="branch_edit">
                 <form action="{{route('academic-holiday.update', ['id' => $holiday->id])}}" method="post">
                     @csrf
@@ -15,11 +20,13 @@
                         <div class="col-md-10 mb-3">
                             <label for>Type <span>*</span></label>
                             <p class="rad_text">
-                                <input type="radio" name="type" value="activities" {{ $holiday->type == 'activities' ? 'checked' : ''}} checked id="check">
+                                <input type="radio" name="type" value="activities"
+                                    {{ $holiday->type == 'activities' ? 'checked' : ''}} checked id="check">
                                 <b>activities</b>
                             </p> &nbsp; &nbsp;
                             <p class="rad_text">
-                                <input type="radio" value="holidays" {{ $holiday->type == 'holidays' ? 'checked' : ''}} name="type" id="check">
+                                <input type="radio" value="holidays" {{ $holiday->type == 'holidays' ? 'checked' : ''}}
+                                    name="type" id="check">
                                 <b>Holidays</b>
                             </p>
                             @error('type')
@@ -38,8 +45,10 @@
                         <div class="col-md-10 mb-3">
                             <label for>Status <span>*</span></label>
                             <select name="status" id="">
-                                <option value="active" {{ $holiday->status == 'active' ? 'selected' : ''}}>Active</option>
-                                <option value="inactive" {{ $holiday->status == 'inactive' ? 'selected' : ''}}>Inactive</option>
+                                <option value="active" {{ $holiday->status == 'active' ? 'selected' : ''}}>Active
+                                </option>
+                                <option value="inactive" {{ $holiday->status == 'inactive' ? 'selected' : ''}}>Inactive
+                                </option>
                             </select>
                             @error('status')
                             <span class="text-red-500 text-sm">{{$message}}</span>
@@ -57,12 +66,9 @@
                 </form>
 
             </div>
-    </div>    
-</section>
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-    </div>
+        </div>
+    </section>
+
+</div>
+@endcan
 @endsection

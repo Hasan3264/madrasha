@@ -1,62 +1,67 @@
 @extends('layouts.AdminPanal')
 @section('content')
 
-    <div class="u-content">
-        <div class="u-body">
+@can('watch')
+<div class="u-content">
+    <div class="u-body">
 
-<section class="es-form-area">
-    <div class="card">
-        <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-            <h2 class="text-white mb-0">
-                All Group
-            </h2>
-        </header>
+        <section class="es-form-area">
+            <div class="card">
+                <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                    <h2 class="text-white mb-0">
+                        All Group
+                    </h2>
+                </header>
 
-        <div class="card-body table-responsive" id="institue">
-            <form action="" class="es-form es-add-form">
-                <a href="{{ route('add-group') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
-               <p class="text-right">Showing {{ count($all_group) }} item</p>
-                <!---- session table  ----->
-                    <table id="SubjectTable" class="table table-bordered mt-3 text-center">
-                        <thead class="table-bordered">
-                            <tr>
-                                <th scope="col">Srl</th>
-                                <th scope="col">Class Name</th>
-                                <th scope="col">Group Name</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @php
-                            $i=1;
-                        @endphp
-                    @foreach($all_group as $item)
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $all_class->getClassName($item->class_name)}}</td>
-                                <td>{{ $item->group_name }}</td>
+                <div class="card-body table-responsive" id="institue">
+                    <form action="" class="es-form es-add-form">
+                        <a href="{{ route('add-group') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                        <p class="text-right">Showing {{ count($all_group) }} item</p>
+                        <!---- session table  ----->
+                        <table id="SubjectTable" class="table table-bordered mt-3 text-center">
+                            <thead class="table-bordered">
+                                <tr>
+                                    <th scope="col">Srl</th>
+                                    <th scope="col">Class Name</th>
+                                    <th scope="col">Group Name</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach($all_group as $item)
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $all_class->getClassName($item->class_name)}}</td>
+                                    <td>{{ $item->group_name }}</td>
 
-                                <td>
-                                    <a href="{{ route('group-view',$item->id) }}" title="View"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp&nbsp
-                                    <a href="{{ route('edit-group',$item->id)}}" title="Edit"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp&nbsp
-                                    <a href="{{route('delete-group',$item->id)}}" id="delete" title="Delete"><i class="fa-solid fa-trash"></i></a>&nbsp &nbsp&nbsp
-                                </td>
-                                <td></td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                                    <td>
+                                        <a href="{{ route('group-view',$item->id) }}" title="View"><i
+                                                class="fa-solid fa-eye"></i></a>&nbsp &nbsp&nbsp
+                                        <a href="{{ route('edit-group',$item->id)}}" title="Edit"><i
+                                                class="fa-solid fa-pencil"></i></a>&nbsp &nbsp&nbsp
+                                        <a href="{{route('delete-group',$item->id)}}" id="delete" title="Delete"><i
+                                                class="fa-solid fa-trash"></i></a>&nbsp &nbsp&nbsp
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                <!---- /session table ----->
+                        <!---- /session table ----->
 
-            </form>
-        </div>
+                    </form>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
 
     </div>
 </div>
+@endcan
 
 @endsection
 

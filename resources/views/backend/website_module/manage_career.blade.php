@@ -1,5 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
+    @can('watch')
     <div class="u-content">
         <div class="u-body">
 
@@ -54,6 +55,7 @@
 
         </div>
     </div>
+    @endcan
 @endsection
 @section('fotter_js')
 <script>

@@ -1,5 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
 
     <section class="es-form-area">
@@ -33,8 +34,10 @@
                                 <td>{{$subject->code}}</td>
                                 <td>{{$subject->name}}</td>
                                 <td>
-                                    <a href="{{route('subject.view', $subject->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp; &nbsp;&nbsp;
-                                    <a href="{{route('edit.subject', $subject->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp;
+                                    <a href="{{route('subject.view', $subject->id)}}"><i
+                                            class="fa-solid fa-eye"></i></a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{route('edit.subject', $subject->id)}}"><i
+                                            class="fa-solid fa-pencil"></i></a>&nbsp;
                                     &nbsp;&nbsp;
                                     <a class="deleteRecord cursor-pointer" data-id="{{ $subject->id }}"><i
                                             class="fa-solid fa-trash"></i></a>&nbsp; &nbsp;
@@ -54,6 +57,7 @@
     </section>
 
 </div>
+@endcan
 @endsection
 
 @section('fotter_js')
@@ -79,20 +83,20 @@
 </script>
 
 <script>
-$('.deleteRecord').click(function () {
-    var el = $(this);
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
+    $('.deleteRecord').click(function () {
+        var el = $(this);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-              var del_id = el.data("id");
+                var del_id = el.data("id");
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -105,7 +109,7 @@ $('.deleteRecord').click(function () {
                         'del_id': del_id
                     },
                     success: function (response) {
-                       $('#'+response['tr']).slideUp("slow");
+                        $('#' + response['tr']).slideUp("slow");
                         Swal.fire(
                             'Done!',
                             data.success,
@@ -115,8 +119,9 @@ $('.deleteRecord').click(function () {
                     }
                 });
 
-        }
+            }
+        });
     });
- });
+
 </script>
 @endsection

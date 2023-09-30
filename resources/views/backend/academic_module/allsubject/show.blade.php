@@ -1,5 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
 
     <section class="es-form-area">
@@ -14,7 +15,8 @@
                 <form action="" class="es-form es-add-form">
                     <div class="session_view_link mt-2 mb-5">
                         <a href="{{route('add.subject')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
-                        <a href="{{route('edit.subject', $findId->id)}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="{{route('edit.subject', $findId->id)}}" class="btn btn-primary"><i
+                                class="fa-solid fa-pencil"></i></a>
                     </div>
                     <!---- Session View table  ----->
                     <table class="table table-bordered table-striped mt-3 branch_view_table">
@@ -42,4 +44,5 @@
     </section>
 
 </div>
+@endcan
 @endsection

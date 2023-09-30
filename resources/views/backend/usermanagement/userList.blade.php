@@ -1,5 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
     <section class="es-form-area">
         <div class="card">
@@ -17,7 +18,6 @@
                         <thead class="table-bordered">
                             <tr>
                                 <th scope="col">Srl</th>
-                                <th scope="col">Branch</th>
                                 <th scope="col">User Type</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Email</th>
@@ -26,33 +26,22 @@
                         </thead>
                         <tbody>
                             @foreach ($studentlists as $key => $list)
-
                             <tr>
                                 <th scope="row">{{$key+1}}</th>
-                                <td>
-                                    @if ($list->relation_branch)
-                                    <p>{{ $list->relation_branch->branch_name }}</p>
-                                    @else
-                                    <p>No branch details available</p>
-                                    @endif
+                                <td>  @foreach ($list->getRoleNames() as $rol)
+                                    <li>{{$rol}}</li>
+                                    @endforeach</td>
+                                <td><p>{{ $list->name }}</p>
                                 </td>
-                                <td>@foreach ($list->relation_user->getRoleNames() as $rol)
-                            <li>{{$rol}}</li>
-                            @endforeach</td></td>
-                                <td>@if ($list->relation_user)
-                                    <p>{{ $list->relation_user->name }}</p>
-                                    @else
-                                    <p>No details available</p>
-                                    @endif</td>
-                                <td>
-                                    {{$list->relation_user->email}}
+                                    <td>
+                                    {{$list->email}}
                                 </td>
                                 <td>
                                     <a href="{{route('user.show', $list->id)}}"><i
                                             class="fa-solid fa-eye"></i></a>&nbsp; &nbsp;
                                     <a href="{{route('user.edit', $list->id)}}"><i
                                             class="fa-solid fa-pencil"></i></a>&nbsp; &nbsp;
-                                  <a href="{{route('user.delete',$list->relation_user->id)}}"><i
+                                  <a href="{{route('user.delete',$list->id)}}"><i
                                             class="fa-solid fa-trash"></i></a>&nbsp; &nbsp;
                                 </td>
                             </tr>
@@ -69,6 +58,7 @@
         </div>
     </section>
 </div>
+@endcan
 @endsection
 @section('fotter_js')
 <script>

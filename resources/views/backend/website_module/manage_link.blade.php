@@ -1,59 +1,61 @@
 @extends('layouts.AdminPanal')
 @section('content')
-    <div class="u-content">
-        <div class="u-body">
+  @can('watch')
+  <div class="u-content">
+    <div class="u-body">
 
-            <section class="es-form-area">
-                <div class="card">
-                    <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-                        <h2 class="text-white mb-0">
-                            Manage Link
-                        </h2>
-                    </header>
+        <section class="es-form-area">
+            <div class="card">
+                <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                    <h2 class="text-white mb-0">
+                        Manage Link
+                    </h2>
+                </header>
 
-                    <div class="card-body table-responsive" id="institue">
-                        <form action="" class="es-form es-add-form">
-                            <a href="{{ route('add_link') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
-                            <!---- slide show table  ----->
-                            <table id="kjpkjp" class="table table-bordered mt-3 text-center">
-                                <thead class="table-bordered">
-                                    <tr>
-                                        <th scope="col">Srl</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Url</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($lisks as $key => $value)
+                <div class="card-body table-responsive" id="institue">
+                    <form action="" class="es-form es-add-form">
+                        <a href="{{ route('add_link') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                        <!---- slide show table  ----->
+                        <table id="kjpkjp" class="table table-bordered mt-3 text-center">
+                            <thead class="table-bordered">
+                                <tr>
+                                    <th scope="col">Srl</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Url</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($lisks as $key => $value)
 
-                                    <tr id="tr_{{$value->id}}">
-                                        <th scope="row">{{$key+1}}</th>
-                                        <td>{{$value->title}}</td>
-                                        <td>{{$value->link}}</td>
-                                        <td>{{$value->status}}</td>
-                                        <td>
-                                            <a href="{{route('link_view', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp
-                                            <a href="{{route('link_edit', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp
-                                            <a class="deleteRecord cursor-pointer" data-id="{{ $value->id }}"><i
-                                        class="fa-solid fa-trash"></i></a>&nbsp &nbsp
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                <tr id="tr_{{$value->id}}">
+                                    <th scope="row">{{$key+1}}</th>
+                                    <td>{{$value->title}}</td>
+                                    <td>{{$value->link}}</td>
+                                    <td>{{$value->status}}</td>
+                                    <td>
+                                        <a href="{{route('link_view', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp
+                                        <a href="{{route('link_edit', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp
+                                        <a class="deleteRecord cursor-pointer" data-id="{{ $value->id }}"><i
+                                    class="fa-solid fa-trash"></i></a>&nbsp &nbsp
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                            <!---- /slide show table ----->
+                        <!---- /slide show table ----->
 
-                        </form>
-                    </div>
-
+                    </form>
                 </div>
-            </section>
 
-        </div>
+            </div>
+        </section>
+
     </div>
+</div>
+  @endcan
 @endsection
 @section('fotter_js')
 <script>

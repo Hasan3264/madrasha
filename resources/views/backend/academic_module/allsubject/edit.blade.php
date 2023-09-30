@@ -1,24 +1,26 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
     @endif
-<section class="es-form-area">
-    <div class="card">
-        <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-            <h2 class="text-white mb-0">Update Subject</h2>
-        </header>
-        <div class="session_add">
+    <section class="es-form-area">
+        <div class="card">
+            <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                <h2 class="text-white mb-0">Update Subject</h2>
+            </header>
+            <div class="session_add">
 
-            <div class="session_view_link mt-1 ml-1 mb-5">
-                <a href="{{route('add.subject')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
-                <a href="{{route('subject.view', $findId->id)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-            </div>
+                <div class="session_view_link mt-1 ml-1 mb-5">
+                    <a href="{{route('add.subject')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                    <a href="{{route('subject.view', $findId->id)}}" class="btn btn-primary"><i
+                            class="fa-solid fa-eye"></i></a>
+                </div>
 
-            <form action="{{route('update.subject')}}" method="POST">
+                <form action="{{route('update.subject')}}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-md-10 mb-3">
@@ -50,7 +52,7 @@
                         <div class="col-md-10 mb-3">
                             <label for="">Subject Name <span>*</span></label>
                             <input type="text" placeholder=" " name="name" value="{{$findId->name}}" id="">
-                            <input type="hidden" placeholder=" " name="subjct_id" value="{{$findId->id}}"  id="">
+                            <input type="hidden" placeholder=" " name="subjct_id" value="{{$findId->id}}" id="">
                             @error('name')
                             <div class="error">{{ $message }}</div>
                             @enderror
@@ -77,10 +79,11 @@
 
             </div>
         </div>
-    </div>
+</div>
+@endcan
 </section>
 
-    </div>
+</div>
 @endsection
 @section('fotter_js')
 <script>

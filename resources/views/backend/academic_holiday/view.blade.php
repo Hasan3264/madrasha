@@ -1,7 +1,7 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
-
     <section class="es-form-area">
         <div class="card">
             <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
@@ -65,4 +65,5 @@
     </div>
     @endif
 </div>
+@endcan
 @endsection

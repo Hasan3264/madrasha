@@ -10,19 +10,6 @@
                 <form name="InsertSubForm" id="InsertSubForm" class="es-form es-add-form">
                     @csrf
                     <div class="row">
-                        <div class="col-lg-8 offset-lg-2 col-md-12 mb-4">
-                            <label for="branch">Branch <span>*</span></label>
-                            <select id="branch" name="branch" class="es-add-select">
-                                <option value="">Select Branch</option>
-                                @foreach ($branchs as $branch)
-                                <option value="{{$branch->id}}" {{($branch->id == $findId->branch_id?'selected':'')}}>{{$branch->branch_name}}</option>
-                                @endforeach
-                            </select>
-                            @error('branch')
-                            <strong class="text-danger">{{$message}}</strong>
-                            @enderror
-
-                        </div>
 
                         <div class="col-lg-8 offset-lg-2 col-md-12 mb-4">
                             <label for="day">Username <span>*</span> </label>

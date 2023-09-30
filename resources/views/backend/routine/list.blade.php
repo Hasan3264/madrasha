@@ -1,5 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
+@can('watch')
 <div class="u-body">
 
     <section class="es-form-area">
@@ -54,6 +55,7 @@
         </table>
     </section>
 </div>
+@endcan
 
 
 @if(session('success'))

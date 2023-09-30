@@ -20,7 +20,7 @@ use Illuminate\View\View;
 class UserManagmentController extends Controller
 {
     public function studentList(){
-        $studentlists = user_type::paginate(10);
+        $studentlists = User::all();
         return view('backend.usermanagement.userList',[
             'studentlists' => $studentlists,
 
@@ -66,11 +66,6 @@ class UserManagmentController extends Controller
             'email'=> $request->email,
             'password' => Hash::make($request->password),
         ]);
-        user_type::insert([
-                'user_id' => $userId,
-                'branch_id' =>$request->branch,
-        ]);
-
         $user = User::find($userId);
          $user->assignRole($request->role_id);
        return response()->json(['success' => "Added Successfully."]);

@@ -25,10 +25,7 @@ use App\Models\apply;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Auth::routes([
-    'register'=>false,
-    'login'=>false,
-]);
+//registerHAME
 Route::get('/welcome', function () {
     return view('welcome');
 });

@@ -1,5 +1,6 @@
 @extends("layouts.AdminPanal")
 @section("content")
+@can('watch')
 <div class="u-body">
     <section class="es-form-area">
         <div class="card">
@@ -476,4 +477,5 @@
     </div>
     @endif
 </div>
+@endcan
 @endsection

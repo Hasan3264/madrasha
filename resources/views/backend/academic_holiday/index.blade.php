@@ -1,5 +1,6 @@
 @extends("layouts.AdminPanal")
 @section('content')
+@can('watch')
 @if(session('success'))
 <div class="alert alert-success">
     {{ session('success') }}
@@ -81,4 +82,5 @@
     </section>
 
 </div>
+@endcan
 @endsection

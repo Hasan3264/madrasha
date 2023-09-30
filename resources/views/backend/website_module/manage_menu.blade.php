@@ -1,67 +1,69 @@
 @extends('layouts.AdminPanal')
 @section('content')
-    <div class="u-content">
-        <div class="u-body">
+   @can('watch')
+   <div class="u-content">
+    <div class="u-body">
 
-            <section class="es-form-area">
-                <div class="card">
-                    <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-                        <h2 class="text-white mb-0">
-                            Manage Menu
-                        </h2>
-                    </header>
+        <section class="es-form-area">
+            <div class="card">
+                <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                    <h2 class="text-white mb-0">
+                        Manage Menu
+                    </h2>
+                </header>
 
-                    <div class="card-body table-responsive" id="institue">
-                        <form action="" class="es-form es-add-form">
-                            <a href="{{ route('add_menu') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                <div class="card-body table-responsive" id="institue">
+                    <form action="" class="es-form es-add-form">
+                        <a href="{{ route('add_menu') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
 
-                            <!---- slide show table  ----->
-                            <table id="tablreUser" class="table table-bordered mt-3 text-center">
-                                <thead class="table-bordered">
-                                    <tr>
-                                        <th scope="col">Srl</th>
-                                        <th scope="col">Parent Menu</th>
-                                        <th scope="col">Position</th>
-                                        <th scope="col">Is Left Column</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($manus as  $key => $value)
+                        <!---- slide show table  ----->
+                        <table id="tablreUser" class="table table-bordered mt-3 text-center">
+                            <thead class="table-bordered">
+                                <tr>
+                                    <th scope="col">Srl</th>
+                                    <th scope="col">Parent Menu</th>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Is Left Column</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($manus as  $key => $value)
 
-                                    <tr id="tr_{{$value->id}}">
-                                        <th scope="row">{{$key+1}}</th>
-                                        <td>{{$value->p_manu}}</td>
-                                        <td>{{$value->position}}</td>
-                                        <td>{{$value->islastcolume}}</td>
-                                        <td>{{$value->status}}</td>
-                                        <td>
-                                            <a href="{{route('view.manu', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp
-                                            &nbsp
-                                            <a href="{{route('edit.manu', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp
-                                            &nbsp
-                                            <a class="deleteRecord cursor-pointer" data-id="{{ $value->id }}"><i
-                                                class="fa-solid fa-trash"></i></a>&nbsp &nbsp
-                                        </td>
-                                    </tr>
-                                    @endforeach
-
-
-                                </tbody>
-                            </table>
-
-                            <!---- /slide show table ----->
+                                <tr id="tr_{{$value->id}}">
+                                    <th scope="row">{{$key+1}}</th>
+                                    <td>{{$value->p_manu}}</td>
+                                    <td>{{$value->position}}</td>
+                                    <td>{{$value->islastcolume}}</td>
+                                    <td>{{$value->status}}</td>
+                                    <td>
+                                        <a href="{{route('view.manu', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp
+                                        &nbsp
+                                        <a href="{{route('edit.manu', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp
+                                        &nbsp
+                                        <a class="deleteRecord cursor-pointer" data-id="{{ $value->id }}"><i
+                                            class="fa-solid fa-trash"></i></a>&nbsp &nbsp
+                                    </td>
+                                </tr>
+                                @endforeach
 
 
-                        </form>
-                    </div>
+                            </tbody>
+                        </table>
 
+                        <!---- /slide show table ----->
+
+
+                    </form>
                 </div>
-            </section>
 
-        </div>
+            </div>
+        </section>
+
     </div>
+</div>
+   @endcan
 @endsection
 @section('fotter_js')
 <script>
