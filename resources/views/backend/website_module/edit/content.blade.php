@@ -14,21 +14,19 @@
                         <div class="row">
                             <div class="col-md-10 mb-3">
                                 <label for="">Menu <span>*</span></label>
-                                <input type="text" name="manu">
+                                 <input type="text" name="manu">
                                     @error('manu')
                                     <strong class="text-danger">{{$message}}</strong>
                                     @enderror
+
                             </div>
                             <div class="col-md-10 mb-3">
-                                <label for="">File Upload (pdf only) <span>*</span></label>
-                                <input type="file" name="file" id="file">
-                                <input type="hidden" name="edit_id" value="{{$find_id->id}}" id="file">
-                                @error('file')
+                                <label for="">Content <span>*</span></label>
+                                <textarea class="ckeditor" id="editor1" name="content"></textarea>
+                                @error('content')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
-
                             <div class="col-md-10 mb-3">
                                 <label for="">Status <span>*</span></label>
                                 <select name="status" id="">

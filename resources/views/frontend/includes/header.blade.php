@@ -118,29 +118,18 @@
                                  <li class="nav-item">
                                      <a href="#">Result</a>
                                      <ul class="sub-menu">
-                                         <li><a href="boardresult.html">Board Result</a></li>
-                                         <li><a href="academicresult.html">Academic Result</a></li>
-                                     </ul>
-                                 </li>
-                                 <li class="nav-item">
-                                     <a href="#">Albums</a>
-                                     <ul class="sub-menu">
-                                         <li><a href="events.html">Events</a></li>
-                                         <li><a href="gallery.html">Gellery</a></li>
+                                         <li><a href="{{route('boardresult')}}">Board Result</a></li>
+                                         <li><a href="{{route('AcademicBoardresult')}}">Academic Result</a></li>
                                      </ul>
                                  </li>
                                  <li class="nav-item">
                                      <a href="#">Academic</a>
                                      <ul class="sub-menu">
-                                         <li><a href="calender.html">Academic Celender</a></li>
-                                         <li><a href="director.html">Board Of Director</a></li>
+                                         <li><a href="{{route('boarddirector')}}">Board Of Director</a></li>
                                      </ul>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="notice.html">Notice</a>
-                                 </li>
-                                 <li class="nav-item">
-                                     <a href="contact.html">Contact us</a>
+                                     <a href="{{route('notice')}}">Notice</a>
                                  </li>
                              </ul>
                          </div>

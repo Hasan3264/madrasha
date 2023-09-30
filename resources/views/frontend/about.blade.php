@@ -3,10 +3,15 @@
 <div class="container">
       <div class="row">
            <div class="col-lg-10">
-                 <h1>About Us</h1>
-                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae quam tempora porro repellat! Hic consectetur eveniet placeat est, rem quibusdam itaque error ex laborum, veniam quas aperiam nihil recusandae aliquam.
-                 </p>
+            @foreach (App\Models\aboutcontent::latest('created_at')->get() as $aboutcontent)
+            <div class="contetn m-3">
+                <h1>{{$aboutcontent->manu}}</h1>
+                <p>
+                   {!!$aboutcontent->content!!}
+                </p>
+            </div>
+            @endforeach
+
            </div>
       </div>
 </div>

@@ -21,8 +21,6 @@
                                         <tr>
                                             <th scope="col">Srl</th>
                                             <th scope="col">Title</th>
-                                            <th scope="col">File Upload</th>
-                                            <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -32,8 +30,6 @@
                                         <tr id="tr_{{$value->id}}">
                                             <th scope="row">{{$key+1}}</th>
                                             <td>{{$value->title}}</td>
-                                            <td>{{$value->pdf}}</td>
-                                            <td>{{$value->status}}</td>
                                             <td>
                                                 <a href="{{route('notice.view', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp
                                                 <a href="{{route('notice.edit', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp

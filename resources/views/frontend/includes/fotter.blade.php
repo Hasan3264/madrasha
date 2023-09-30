@@ -31,46 +31,40 @@ $branch = App\Models\branchdetails::latest()->first();
                         <ul class="mt-20">
                             <li><a href="{{ $faceboook->url }}" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
 
-                            <li><a href="{{$skypesfd->url}}"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="{{$you_tubes->url}}"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="{{$linkedins->url}}"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="{{$skypesfd->url}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{$you_tubes->url}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="{{$linkedins->url}}"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
                     </div> <!-- footer about -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-link mt-40">
                         <div class="footer-title pb-25">
-                            <h6>Sitemap</h6>
+                            <h6>Manu</h6>
                         </div>
                         <ul>
                             <li><a href="{{url('/')}}"><i class="fa fa-angle-right"></i>Home</a></li>
                             <li><a href="{{route('about.index')}}"><i class="fa fa-angle-right"></i>About us</a></li>
                             <li><a href="{{route('braking.index')}}"><i class="fa fa-angle-right"></i>Breaking News</a></li>
-                            <li><a href="digitalcontent.html"><i class="fa fa-angle-right"></i>Digital Content</a></li>
-                            <li><a href="boardresult.html"><i class="fa fa-angle-right"></i>Result</a></li>
-                            <li><a href="events.html"><i class="fa fa-angle-right"></i>Event</a></li>
+                            <li><a href="{{route('boardresult')}}"><i class="fa fa-angle-right"></i>Result</a></li>
                         </ul>
                         <ul>
-                            <li><a href="gallery.html"><i class="fa fa-angle-right"></i>Gallery</a></li>
-                            <li><a href="video.html"><i class="fa fa-angle-right"></i>Video</a></li>
-                            <li><a href="calender.html"><i class="fa fa-angle-right"></i>Calender</a></li>
-                            <li><a href="director.html"><i class="fa fa-angle-right"></i>Board Director</a></li>
-                            <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                            <li><a href="{{route('boarddirector')}}"><i class="fa fa-angle-right"></i>Board Director</a></li>
                         </ul>
                     </div> <!-- footer link -->
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="footer-link support mt-40">
+                <div class="col-lg-2  col-md-6 col-sm-6">
+                    <div class="d-none footer-link support mt-40">
                         <div class="footer-title pb-25">
                             <h6>Support</h6>
                         </div>
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Privacy</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Policy</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Documentation</a></li>
-                        </ul>
+                        </ul> --}}
                     </div> <!-- support -->
                 </div>
                 <div class="col-lg-3 col-md-6">

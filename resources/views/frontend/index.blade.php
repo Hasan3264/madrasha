@@ -93,7 +93,7 @@ $about = App\Models\ManuContent::latest()->first();
     <div class="container">
         <div class="apply">
             <div class="row no-gutters">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="apply-cont apply-color-1">
                         <h3>Apply for new admission {{ date('Y F') }}</h3>
                         <p>It is a NON-GOVERNMENT Madrasha . This institute's EIIN number is 107898. This institute is located in BALUR PAR, DHAKA, DHAKA division. It's geographical area is PLAIN LAND. It offers classes upto Dakhil level.</p>

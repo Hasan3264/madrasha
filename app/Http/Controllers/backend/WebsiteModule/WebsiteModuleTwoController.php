@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\WebsiteModule;
 
 use App\Http\Controllers\Controller;
+use App\Models\aboutcontent;
 use App\Models\Brakingnews;
 use App\Models\Managealbam;
 use App\Models\ManuContent;
@@ -18,6 +19,12 @@ class WebsiteModuleTwoController extends Controller
             'manucont' => $manucont,
         ]);
     }
+    public function AboutmanageContent(){
+        $manucont = aboutcontent::all();
+        return view('backend.website_module.AboutpageContent',[
+            'manucont' => $manucont,
+        ]);
+    }
 
 
      public function addContent(){
@@ -25,6 +32,10 @@ class WebsiteModuleTwoController extends Controller
         return view('backend.website_module.add_folder.add_content',[
             'manumodel' => $manumodel
         ]);
+      }
+
+     public function AboutaddContent(){
+        return view('backend.website_module.add_folder.aboutpagecontent');
       }
       public function InputContent(Request $request){
            $request->validate([
@@ -41,6 +52,21 @@ class WebsiteModuleTwoController extends Controller
         return redirect(route('manage_content'))->with('success', 'Inserted Successfully!');
       }
 
+      public function AboutInputContent(Request $request){
+           $request->validate([
+              'manu' => ['required'],
+              'content' => ['required'],
+              'status' => ['required'],
+           ]);
+           $ids =  aboutcontent::insertGetId([
+                'manu' => $request->manu,
+                'content' => $request->content,
+                'status' => $request->status,
+                'created_at' => Carbon::now(),
+            ]);
+        return redirect(route('manage.about_content'))->with('success', 'Inserted Successfully!');
+      }
+
       public function EditContent($id){
          $manumodel = Manumodel::all();
           $findId = ManuContent::findOrFail($id);
@@ -50,10 +76,22 @@ class WebsiteModuleTwoController extends Controller
           ]);
       }
 
+      public function AboutEditContent($id){
+          $findId = aboutcontent::findOrFail($id);
+          return view('backend.website_module.edit.aboutpagecontent',[
+            'find_id' => $findId,
+          ]);
+      }
+
 
 
      public function DeleteContent(Request $request){
-            ManuContent::findOrFail($request->del_id)->delete();
+        ManuContent::findOrFail($request->del_id)->delete();
+        return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
+     }
+
+     public function AboutDeleteContent(Request $request){
+            aboutcontent::findOrFail($request->del_id)->delete();
         return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
      }
 
@@ -62,7 +100,6 @@ class WebsiteModuleTwoController extends Controller
            $request->validate([
               'manu' => ['required'],
               'content' => ['required'],
-              'file' => ['required','mimes:pdf'],
               'status' => ['required'],
            ]);
            ManuContent::findOrFail($request->edit_id)->update([
@@ -71,20 +108,22 @@ class WebsiteModuleTwoController extends Controller
                 'status' => $request->status,
                 'updated_at' => Carbon::now(),
            ]);
-            $ids = $request->edit_id;
-           $massaes= ManuContent::find($ids);
-           $delete_from=public_path('/uploads/website/contentpdf/'. $massaes->file);
-           unlink($delete_from);
-
-        $uploded_file = $request->file;
-        $extentaion = $uploded_file->getClientOriginalExtension();
-        $file_name = $ids . '.' . $extentaion;
-        $uploded_file->move(public_path('/uploads/website/contentpdf/'), $file_name);
-
-        ManuContent::find($ids)->update([
-            'file' => $file_name,
-        ]);
         return redirect(route('manage_content'))->with('success', 'Inserted Successfully!');
+      }
+
+      public function AboutUpdateContent(Request $request){
+           $request->validate([
+              'manu' => ['required'],
+              'content' => ['required'],
+              'status' => ['required'],
+           ]);
+           aboutcontent::findOrFail($request->edit_id)->update([
+                'manu' => $request->manu,
+                'content' => $request->content,
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
+           ]);
+        return redirect(route('manage.about_content'))->with('success', 'Inserted Successfully!');
       }
 
     public function ViewContent($id){

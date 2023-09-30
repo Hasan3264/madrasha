@@ -25,16 +25,8 @@
                                 <td>{{$findId->title}}</td>
                             </tr>
                             <tr>
-                                <th>File Upload</th>
-                                <td>{{$findId->pdf}}</td>
-                            </tr>
-                            <tr>
                                 <th>Notices</th>
                                 <td>{{$findId->notice}}</td>
-                            </tr>
-                            <tr>
-                                <th>Status</th>
-                                <td>{{$findId->status}}</td>
                             </tr>
                         </tbody>
                     </table>

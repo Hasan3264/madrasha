@@ -3,11 +3,11 @@
 <div class="container">
       <div class="row">
            <div class="col-lg-10">
-            @foreach (App\Models\Brakingnews::latest('created_at')->get() as $aboutcontent)
+            @foreach (App\Models\Noticemanage::latest('created_at')->get() as $aboutcontent)
             <div class="contetn m-3">
                 <h1>{{$aboutcontent->title}}</h1>
                 <p class="m-2">
-                   {!!$aboutcontent->details!!}
+                   {!!$aboutcontent->notice!!}
                 </p>
             </div>
             @endforeach

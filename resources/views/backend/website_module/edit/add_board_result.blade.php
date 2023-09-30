@@ -12,16 +12,24 @@
                     <form action="{{route('update.bresult')}}" method="POST">
                         @csrf
                         <div class="row">
-
                             <div class="col-md-10 mb-3">
                                 <label for="">Exam Type <span>*</span></label>
-                                <input type="text" name="exam_type" value="{{$findId->exam_type}}">
-                                <input type="hidden" name="edit_id" value="{{$findId->id}}">
+                               <select name="exam_type" id="">
+                                  <option value="A">Academic</option>
+                                  <option value="B">Board</option>
+                               </select>
                                 @error('exam_type')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
+                            <div class="col-md-10 mb-3">
+                                <label for="">Exam Name <span>*</span></label>
+                                <input type="text" name="exam_name" value="{{$findId->exam_name}}">
+                                <input type="hidden" name="edit_id" value="{{$findId->id}}">
+                                @error('exam_name')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
                             <div class="col-md-10 mb-3">
                                 <label for="">Year <span>*</span></label>
                                 <input type="text" value="{{$findId->year}}" name="year" id=""><br>

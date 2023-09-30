@@ -23,18 +23,14 @@ class WebsiteModuleThreeController extends Controller
 
     public function inputGallery(Request $request){
          $request->validate([
-            'albtype' => ['required'],
-            'title' => ['required'],
+            'name' => ['required'],
             'caption' => ['required'],
-             'file' => ['required', 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,image/jpeg,image/png,image/jpg'],
-             'status' => ['required']
+             'file' => ['required', 'mimes:jpeg,png,jpg'],
          ]);
          $ids = Gallarymanag::insertGetId([
-              'albtype' => $request->albtype,
-              'title' => $request->title,
+              'name' => $request->name,
               'caption' => $request->caption,
               'file' => 'ok',
-              'status' => $request->status,
               'created_at' => Carbon::now(),
          ]);
         $uploded_file = $request->file;
@@ -58,17 +54,13 @@ class WebsiteModuleThreeController extends Controller
     }
     public function UpdateGallery(Request $request){
         $request->validate([
-            'albtype' => ['required'],
-            'title' => ['required'],
+            'name' => ['required'],
             'caption' => ['required'],
-             'file' => ['required', 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,image/jpeg,image/png,image/jpg'],
-             'status' => ['required']
+             'file' => ['required', 'mimes:jpeg,png,jpg'],
          ]);
            Gallarymanag::findOrFail($request->edit_id)->update([
-             'albtype' => $request->albtype,
-              'title' => $request->title,
-              'caption' => $request->caption,
-              'status' => $request->status,
+            'name' => $request->name,
+            'caption' => $request->caption,
               'updated_at' => Carbon::now(),
            ]);
 

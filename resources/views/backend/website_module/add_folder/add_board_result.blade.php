@@ -15,8 +15,18 @@
 
                             <div class="col-md-10 mb-3">
                                 <label for="">Exam Type <span>*</span></label>
-                                <input type="text" name="exam_type">
+                               <select name="exam_type" id="">
+                                  <option value="A">Academic</option>
+                                  <option value="B">Board</option>
+                               </select>
                                 @error('exam_type')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                            <div class="col-md-10 mb-3">
+                                <label for="">Exam Name <span>*</span></label>
+                                <input type="text" name="exam_name">
+                                @error('exam_name')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>

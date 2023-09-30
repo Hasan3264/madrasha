@@ -22,8 +22,18 @@ class frontendController extends Controller
             'linkedin' => $linkedin,
         ]);
     }
+
     public function applyIndex(){
-        return view('frontend.frontendall.applay');
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.frontendall.applay',[
+            'facebook' => $facebok,
+            'skype' => $skype,
+            'you_tube' => $you_tube,
+            'linkedin' => $linkedin,
+        ]);
     }
     public function apply(Request $request){
         $request->validate([
@@ -76,6 +86,69 @@ class frontendController extends Controller
         'you_tube' => $you_tube,
         'linkedin' => $linkedin,
        ]);
+    }
+
+
+    //board Result
+    public function boardresult(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.boardResult',[
+            'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
+    }
+    public function AcademicBoardresult(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.AcademicResult',[
+        'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
+    }
+    public function gallary(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.gallary',[
+        'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
+    }
+    public function boarddirector(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.boarddirector',[
+        'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
+    }
+    public function notice(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.notice',[
+        'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
     }
 
 

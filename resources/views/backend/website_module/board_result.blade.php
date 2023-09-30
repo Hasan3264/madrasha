@@ -22,6 +22,7 @@
                                             <th scope="col">Srl</th>
                                             <th scope="col">Year</th>
                                             <th scope="col">Exam Type</th>
+                                            <th scope="col">Exam Name</th>
                                             <th scope="col">Total Student</th>
                                             <th scope="col">Passed</th>
                                             <th scope="col">Passed (%)</th>
@@ -36,6 +37,7 @@
                                             <th scope="row">{{$key+1}}</th>
                                             <td>{{$value->year}}</td>
                                             <td>{{$value->exam_type}}</td>
+                                            <td>{{$value->exam_name}}</td>
                                             <td>{{$value->t_student}}</td>
                                             <td>{{$value->pass_student}}</td>
                                             <td>{{$value->passes}}</td>

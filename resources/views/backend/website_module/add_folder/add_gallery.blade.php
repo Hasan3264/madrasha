@@ -1,42 +1,27 @@
 @extends('layouts.AdminPanal')
 @section('content')
-    <div class="u-content">
-        <div class="u-body">
+<div class="u-content">
+    <div class="u-body">
 
-            <section class="es-form-area">
-                <div class="card">
-                    <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-                        <h2 class="text-white mb-0">Add Gallery</h2>
-                    </header>
-                    <div class="session_add">
-                        <form action="{{route('input.gallary')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
+        <section class="es-form-area">
+            <div class="card">
+                <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
+                    <h2 class="text-white mb-0">Add Gallery</h2>
+                </header>
+                <div class="session_add">
+                    <form action="{{route('input.gallary')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
                             <div class="col-md-10 mb-3">
-                                <label for="">Album Type </label>
-                                <p class="rad_text">
-                                    <input type="radio" value="Photo" placeholder="Education" name="albtype" id="check">
-                                    <b>Photo</b>
-                                </p> &nbsp; &nbsp;
-                                <p class="rad_text">
-                                    <input type="radio" value="Video"  placeholder="Education" name="albtype" id="check">
-                                    <b>Video</b>
-                                </p>
-                                @error('albtype')
+                                <label for="">Name <span>*</span></label>
+                                <input type="text" value="" name="name">
+                                @error('name')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
 
                             <div class="col-md-10 mb-3">
-                                <label for="">Album Title <span>*</span></label>
-                                <input type="text" value="" name="title">
-                                  @error('title')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">Caption <span>*</span></label>
+                                <label for="">Designation <span>*</span></label>
                                 <input type="text" name="caption" id="">
                                 @error('caption')
                                 <strong class="text-danger">{{$message}}</strong>
@@ -44,24 +29,12 @@
                             </div>
 
                             <div class="col-md-10 mb-3">
-                                <label for="">Albem <span>*</span></label>
+                                <label for="">photo <span>*</span></label>
                                 <input type="file" name="file" id="file">
-                                 @error('file')
+                                @error('file')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">Status <span>*</span></label>
-                                <select name="status" id="">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                    @error('status')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                                </select>
-                            </div>
-
                             <div class="col-md-10 mt-4 mb-3">
                                 <p>
                                     <button type="submit" class="btn bg-gradient border-0 text-white">Create</button>
@@ -70,11 +43,11 @@
                             </div>
 
                         </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </div>
     </div>
+</div>
 @endsection

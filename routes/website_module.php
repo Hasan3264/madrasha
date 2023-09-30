@@ -51,6 +51,15 @@ Route::get('/Edit/content/{id}', [WebsiteModuleTwoController::class, 'EditConten
 Route::post('/update/content', [WebsiteModuleTwoController::class, 'UpdateContent'])->name('Update.content');
 Route::get('/View/content/{id}', [WebsiteModuleTwoController::class, 'ViewContent'])->name('content.view');
 
+//manage About Page content part start
+Route::get('/manage/about/content', [WebsiteModuleTwoController::class, 'AboutmanageContent'])->name('manage.about_content');
+Route::get('/add/about/content', [WebsiteModuleTwoController::class, 'AboutaddContent'])->name('add.about_content');
+Route::post('/input/about/content', [WebsiteModuleTwoController::class, 'AboutInputContent'])->name('Input.about.content');
+Route::post('/delete/about/content', [WebsiteModuleTwoController::class, 'AboutDeleteContent'])->name('content.about.delete');
+Route::get('/Edit/about/content/{id}', [WebsiteModuleTwoController::class, 'AboutEditContent'])->name('content.about.edit');
+Route::post('/update/about/content', [WebsiteModuleTwoController::class, 'AboutUpdateContent'])->name('Update.about.content');
+
+
 
 
 //braking news content

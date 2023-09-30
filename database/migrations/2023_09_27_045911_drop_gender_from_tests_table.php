@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gallarymanags', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('caption');
-            $table->string('file');
-            $table->timestamps();
+        Schema::table('noticemanages', function (Blueprint $table) {
+            $table->dropColumn('pdf');
+            $table->dropColumn('status');
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gallarymanags');
+        Schema::table('noticemanages', function (Blueprint $table) {
+            //
+        });
     }
 };

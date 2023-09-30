@@ -26,23 +26,10 @@ class WebsiteModuleFourController extends Controller
         $request->validate([
               'title' => ['required'],
               'notice' => ['required'],
-              'pdf' => ['required','mimes:pdf'],
-              'status' => ['required'],
         ]);
       $ids =  Noticemanage::insertGetId([
           'title' => $request->title,
           'notice' => $request->notice,
-          'status' => $request->status,
-          'pdf' => 'ok',
-        ]);
-
-        $uploded_file = $request->pdf;
-        $extentaion = $uploded_file->getClientOriginalExtension();
-        $file_name = $ids . '.' . $extentaion;
-        $uploded_file->move(public_path('/uploads/website/noticepdf/'), $file_name);
-
-        Noticemanage::find($ids)->update([
-            'pdf' => $file_name,
         ]);
         return redirect(route('manage_notice'))->with('success', 'Inserted Successfully!');
     }
@@ -56,26 +43,10 @@ class WebsiteModuleFourController extends Controller
             $request->validate([
              'title' => ['required'],
               'notice' => ['required'],
-              'pdf' => ['required','mimes:pdf'],
-              'status' => ['required'],
         ]);
         Noticemanage::findOrFail($request->edit_id)->update([
             'title' => $request->title,
           'notice' => $request->notice,
-          'status' => $request->status,
-        ]);
-        $ids = $request->edit_id;
-           $massaes= Noticemanage::find($ids);
-           $delete_from=public_path('/uploads/website/noticepdf/'. $massaes->pdf);
-           unlink($delete_from);
-
-        $uploded_file = $request->pdf;
-        $extentaion = $uploded_file->getClientOriginalExtension();
-        $file_name = $ids . '.' . $extentaion;
-        $uploded_file->move(public_path('/uploads/website/noticepdf/'), $file_name);
-
-         Noticemanage::find($ids)->update([
-            'pdf' => $file_name,
         ]);
         return redirect(route('manage_notice'))->with('success', 'Inserted Successfully!');
     }
@@ -185,6 +156,7 @@ class WebsiteModuleFourController extends Controller
              't_student' => ['required'],
              'pass_student' => ['required'],
              'passes' => ['required'],
+             'exam_name' => ['required'],
              't_plass' => ['required'],
              'details' => ['required'],
              'status' => ['required'],
@@ -195,6 +167,7 @@ class WebsiteModuleFourController extends Controller
                 't_student' => $request->t_student,
                 'pass_student'=>$request->pass_student,
                 'passes' => $request->passes,
+                'exam_name' => $request->exam_name,
                 't_plass' => $request->t_plass,
                 'details' => $request->details,
                 'status' => $request->status
@@ -214,6 +187,7 @@ class WebsiteModuleFourController extends Controller
              't_student' => ['required'],
              'pass_student' => ['required'],
              'passes' => ['required'],
+             'exam_name' => ['required'],
              't_plass' => ['required'],
              'details' => ['required'],
              'status' => ['required'],
@@ -224,6 +198,7 @@ class WebsiteModuleFourController extends Controller
                 't_student' => $request->t_student,
                 'pass_student'=>$request->pass_student,
                 'passes' => $request->passes,
+                'exam_name' => $request->exam_name,
                 't_plass' => $request->t_plass,
                 'details' => $request->details,
                 'status' => $request->status

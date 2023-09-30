@@ -6,36 +6,37 @@
         <section class="es-form-area">
             <div class="card">
                 <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
-                    <h2 class="text-white mb-0">Update Gallery</h2>
+                    <h2 class="text-white mb-0">Add About Page Content</h2>
                 </header>
                 <div class="session_add">
-                    <form action="{{route('update.gallary')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('Input.about.content')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-10 mb-3">
-                                <label for="">Name <span>*</span></label>
-                                <input type="text" value="{{$findId->name}}" name="name">
-                                <input type="hidden" value="{{$findId->id}}" name="edit_id">
-                                @error('name')
+                                <label for="">Manu <span>*</span></label>
+                                <input type="text" name="manu">
+                                @error('manu')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
+                            </div>
+                            <div class="col-md-10 mb-3">
+                                <label for="">Content <span>*</span></label>
+                                <textarea class="ckeditor" id="editor1" name="content"></textarea>
+                                @error('content')
+                                <strong class="text-danger">{{$message}}</strong>
+                                @enderror
+                            </div>
+                            <div class="col-md-10 mb-3">
+                                <label for="">Status <span>*</span></label>
+                                <select name="status" id="">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    @error('status')
+                                    <strong class="text-danger">{{$message}}</strong>
+                                    @enderror
+                                </select>
                             </div>
 
-                            <div class="col-md-10 mb-3">
-                                <label for="">Designation <span>*</span></label>
-                                <input type="text" name="caption" id="">
-                                @error('caption')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">photo <span>*</span></label>
-                                <input type="file" name="file" id="file">
-                                @error('file')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                            </div>
                             <div class="col-md-10 mt-4 mb-3">
                                 <p>
                                     <button type="submit" class="btn bg-gradient border-0 text-white">Create</button>

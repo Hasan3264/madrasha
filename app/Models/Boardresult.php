@@ -16,6 +16,7 @@ class Boardresult extends Model
         'passes',
         't_plass',
         'details',
+        'exam_name',
         'status',
     ];
 }

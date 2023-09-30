@@ -46,7 +46,7 @@
 .singel-publication .cont .name,
 .singel-publication .cont .button {
 	width: 100%;
-    
+
 }
 .singel-publication .cont .button {
     text-align: left !important;
@@ -158,7 +158,7 @@
 
 
 
- 
+
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991.98px) {
 
@@ -414,7 +414,7 @@
 
 }
 
- 
+
 /* small mobile :320px. */
 @media (min-width: 576px) and (max-width: 767.98px) {
 
@@ -493,7 +493,7 @@
 	position: relative;
 	z-index: 5;
 }
-	
+
 .navigation-2.navigation .navbar {
 	padding: 20px 0;
 }
@@ -753,10 +753,10 @@
 
 
 
-    
+
 
 }
- 
+
 /* Large Mobile :480px. */
 @media only screen and  (max-width: 575.98px) {
 
@@ -1127,7 +1127,7 @@
 .events-coundwon .count-down-time .singel-count .title{
     font-size: 12px;
 }
-    
+
 .events-area {
 	padding: 20px 25px 25px;
 }
@@ -1378,6 +1378,14 @@
 #contact-page {
 	padding-top: 40px;
 	padding-bottom: 70px;
+}
+.dffdd{
+    overflow-x: scroll;
+}
+.tabfgle {
+    scroll-behavior: smooth;
+    overflow: auto;
+    max-height: 200px; /* Set a maximum height for the table to enable scrolling */
 }
 
 

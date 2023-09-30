@@ -760,14 +760,14 @@
                                         <span class="u-sidebar-nav-menu__item-title">Breaking News</span>
                                     </a>
                                 </li>
-                                <li class="u-sidebar-nav-menu__item">
+                                <li class="u-sidebar-nav-menu__item d-none">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manage_album') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Album List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manage_gallery') }}">
-                                        <span class="u-sidebar-nav-menu__item-title">All Gallery List</span>
+                                        <span class="u-sidebar-nav-menu__item-title">Board Of Director List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
@@ -775,7 +775,7 @@
                                         <span class="u-sidebar-nav-menu__item-title">Latest News List</span>
                                     </a>
                                 </li>
-                                <li class="u-sidebar-nav-menu__item">
+                                <li class="u-sidebar-nav-menu__item d-none">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manage_event') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Events List</span>
                                     </a>
@@ -788,6 +788,11 @@
                                 <li class="u-sidebar-nav-menu__item">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('testimonials.index') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Testimonial List</span>
+                                    </a>
+                                </li>
+                                <li class="u-sidebar-nav-menu__item">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage.about_content') }}">
+                                        <span class="u-sidebar-nav-menu__item-title">Add About Page Content</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">

@@ -25,7 +25,10 @@ use App\Models\apply;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Auth::routes([
+    'register'=>false,
+    'login'=>false,
+]);
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -39,6 +42,16 @@ Route::get('/delete/{id}', [frontendController::class, 'deleteapply'])->name('ap
 Route::get('/about', [frontendController::class, 'aboutIndex'])->name('about.index');
 //braking news
 Route::get('/braking', [frontendController::class, 'brakingIndex'])->name('braking.index');
+//board Result
+Route::get('/resutBoard', [frontendController::class, 'boardresult'])->name('boardresult');
+//academic
+Route::get('/AcademicBoard', [frontendController::class, 'AcademicBoardresult'])->name('AcademicBoardresult');
+//gallry
+Route::get('/gallry', [frontendController::class, 'gallary'])->name('gallary');
+//boarddirector
+Route::get('/boardOfdirector', [frontendController::class, 'boarddirector'])->name('boarddirector');
+//notice
+Route::get('/notice', [frontendController::class, 'notice'])->name('notice');
 
 
 //deshboard start

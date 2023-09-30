@@ -20,17 +20,6 @@
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">File Upload <span>*</span></label>
-                                <input type="file" name="pdf" id="file">
-                                @error('pdf')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                              <br>
-                                <span style="color: red;">Only PDF allowed - maximum 10MB</span>
-                            </div>
-
                             <div class="col-md-10 mb-3">
                                 <label for="">Notice <span>*</span> </label>
                                 <textarea class="ckeditor" id="editor1" name="notice"></textarea>
@@ -38,18 +27,6 @@
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">Status <span>*</span></label>
-                                <select name="status" id="">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                                @error('status')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                            </div>
-
                             <div class="col-md-10 mt-4 mb-3">
                                 <p>
                                     <button type="submit" class="btn bg-gradient border-0 text-white">Create</button>

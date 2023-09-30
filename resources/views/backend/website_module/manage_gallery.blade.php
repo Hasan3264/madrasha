@@ -20,10 +20,9 @@
                             <thead class="table-bordered">
                                 <tr>
                                     <th scope="col">Srl</th>
-                                    <th scope="col">Album Title</th>
-                                    <th scope="col">Caption</th>
-                                    <th scope="col">album</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Neme</th>
+                                    <th scope="col">Designation</th>
+                                    <th scope="col">Photo</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -32,10 +31,13 @@
 
                                 <tr id="tr_{{$value->id}}">
                                     <th scope="row">{{$key+1}}</th>
-                                    <td>{{$value->title}}</td>
+                                    <td>{{$value->name}}</td>
                                     <td>{!!$value->caption!!}</td>
                                     <td>
-                                        @if ($value->albtype == 'Photo')
+                                        <img class="w-100 img-fluid"
+                                            src="{{ asset('uploads/website/gallerymanage') }}/{{ $value->file }}"
+                                            alt="">
+                                        {{-- @if ($value->albtype == 'Photo')
                                         <img class="w-100 img-fluid"
                                             src="{{ asset('uploads/website/gallerymanage') }}/{{ $value->file }}"
                                             alt="">
@@ -50,10 +52,8 @@
                                         </video>
                                         @else
                                           {{'null'}}
-                                        @endif
+                                        @endif --}}
                                     </td>
-
-                                    <td>{{$value->status}}</td>
                                     <td>
                                         <a href="{{route('gallery.view', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp
                                         <a href="{{route('gallery.edit', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp

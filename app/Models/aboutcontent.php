@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallarymanag extends Model
+class aboutcontent extends Model
 {
     use HasFactory;
     protected $fillable = [
-            'name',
-            'caption',
-             'file',
+        'manu',
+'content',
+'status',
     ];
 }

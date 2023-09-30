@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boardresults', function (Blueprint $table) {
+        Schema::create('aboutcontents', function (Blueprint $table) {
             $table->id();
-            $table->string('year');
-            $table->string('t_student');
-            $table->string('exam_type');
-            $table->string('exam_name');
-            $table->string('pass_student');
-            $table->string('passes');
-            $table->string('t_plass');
-            $table->text('details');
+            $table->string('manu');
+            $table->text('content');
             $table->string('status');
             $table->timestamps();
         });
@@ -31,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boardresults');
+        Schema::dropIfExists('aboutcontents');
     }
 };
