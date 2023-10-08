@@ -49,6 +49,8 @@ Route::get('/gallry', [frontendController::class, 'gallary'])->name('gallary');
 Route::get('/boardOfdirector', [frontendController::class, 'boarddirector'])->name('boarddirector');
 //notice
 Route::get('/notice', [frontendController::class, 'notice'])->name('notice');
+//notice
+Route::get('/teachers', [frontendController::class, 'teachers'])->name('teachers.index');
 
 
 //deshboard start

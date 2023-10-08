@@ -150,6 +150,18 @@ class frontendController extends Controller
         'linkedin' => $linkedin,
         ]);
     }
+    public function teachers(){
+        $facebok = Inputsocialmedia::where('title', 'facebook')->get();
+        $skype = Inputsocialmedia::where('title', 'skype')->get();
+        $you_tube = Inputsocialmedia::where('title', 'you tube')->get();
+        $linkedin = Inputsocialmedia::where('title', 'linkedin')->get();
+        return view('frontend.Teachers',[
+        'facebook' => $facebok,
+        'skype' => $skype,
+        'you_tube' => $you_tube,
+        'linkedin' => $linkedin,
+        ]);
+    }
 
 
 }

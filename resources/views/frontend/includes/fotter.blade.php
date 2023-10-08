@@ -28,13 +28,13 @@ $branch = App\Models\branchdetails::latest()->first();
                         @foreach ($skype as $skypesfd)@endforeach
                         @foreach ($you_tube as $you_tubes)@endforeach
                         @foreach ($linkedin as $linkedins)@endforeach
-                        <ul class="mt-20">
+                        {{-- <ul class="mt-20">
                             <li><a href="{{ $faceboook->url }}" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
 
                             <li><a href="{{$skypesfd->url}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="{{$you_tubes->url}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
                             <li><a href="{{$linkedins->url}}"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        </ul> --}}
                     </div> <!-- footer about -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">

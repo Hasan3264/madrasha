@@ -18,7 +18,7 @@ $isempty = $bannrs->isEmpty();
                         <h1 data-animation="bounceInLeft" data-delay="1s">{{$value->title}}</h1>
                         <p data-animation="fadeInUp" data-delay="1.3s">{!!$value->description!!}</p>
                         <ul>
-                            <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a>
+                            <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="{{route('about.index')}}">Read More</a>
                             </li>
                         </ul>
                     </div>
@@ -60,13 +60,13 @@ $about = App\Models\ManuContent::latest()->first();
             <div class="col-lg-5">
                 <div class="section-title mt-50">
                     <h5>About us</h5>
-                    <h2>Welcome to Abed Halima Dhakil Madrasha </h2>
+                    <h2>Welcome to Abed Halima Dhakil Madrasha</h2>
                 </div> <!-- section title -->
                 <div class="about-cont">
                     <p>
                         {!!$about->content!!}
                     </p>
-                    <a href="#" class="main-btn mt-55">Learn More</a>
+                    <a href="{{route('about.index')}}" class="main-btn mt-55">Learn More</a>
                 </div>
             </div> <!-- about cont -->
 
@@ -74,7 +74,8 @@ $about = App\Models\ManuContent::latest()->first();
     </div> <!-- row -->
     <!-- container -->
     <div class="about-bg">
-        <img src="{{asset('FrontEnd/images/about/about-us-1.jpg')}}" alt="About">
+        <img src="{{asset('FrontEnd/images/about/Untitled.jpg')}}" alt="About">
+        <img src="{{asset('FrontEnd/images/about/Untitled.jpg')}}" alt="About">
     </div>
 </section>
 @else
@@ -96,7 +97,7 @@ $about = App\Models\ManuContent::latest()->first();
                 <div class="col-lg-12">
                     <div class="apply-cont apply-color-1">
                         <h3>Apply for new admission {{ date('Y F') }}</h3>
-                        <p>It is a NON-GOVERNMENT Madrasha . This institute's EIIN number is 107898. This institute is located in BALUR PAR, DHAKA, DHAKA division. It's geographical area is PLAIN LAND. It offers classes upto Dakhil level.</p>
+                        <p>প্রতিবছর ২০ ডিসেম্বর তারিখের মধ্যে ভর্তি বিজ্ঞপ্তি প্রকাশ করা হয় এবং ডিসেম্বর মাসের শেষ সপ্তাহে ভর্তি প্রক্রিয়া সমাপ্ত করে ১ জানুয়ারী বই উৎসবের মাধ্যমে ক্লাশ শুরু করা হয়। জানুয়ারী ও ফেব্রুয়ারীর মধ্যে বার্ষিক ক্রীড়ানুষ্ঠান ও ওয়া মাহফিল শেষ করে ১মার্চ থেকে পুরো শ্রেণির কার্যক্রম শুরু হয়। বছরে দুটি পরীক্ষা অনুষ্ঠিত হয়, যাগ্মাষিক ও বার্ষিক ।</p>
                         <a href="{{route('apply.index')}}" class="main-btn">Apply Now</a>
                     </div> <!-- apply cont -->
                 </div>
@@ -141,10 +142,8 @@ $emptyNewsmanage = $Newsmanage->isEmpty();
                             <h4>{{Str::limit($newss->title, 25)}}</h4>
                         </a>
                         <div class="course-teacher">
-                            <div class="name">
-                                <span onclick="toggleNews(event, this)">
-                                    <p>{!! Str::limit($newss->news, 100) !!}</p>
-                                </span>
+                            <div class="name h-20 overflow-hidden">
+                                    <p>{!!$newss->news!!}</p>
                             </div>
                         </div>
                     </div>
@@ -234,8 +233,6 @@ $emptyNewsmanage = $Newsmanage->isEmpty();
                            <p>{!! $t_cont->pera_1 !!} <br>
 
                         <br> {!! $t_cont->pera_2 !!}</p>
-
-                         <a href="#" class="main-btn mt-55">Career with us</a>
                         @else
                          <div class="w-100 h-full text-center" style="background-color: #021d3a">
                         <h2 class="font-bold" style="color: red;">Please Set Teacher Content From Website Module <br>
@@ -250,8 +247,8 @@ $emptyNewsmanage = $Newsmanage->isEmpty();
             <div class="col-lg-6 offset-lg-1">
                 <div class="teachers mt-20">
                     <div class="row">
-                        @foreach (App\Models\Massagecorner::take(4)->get() as $teacher)
-                        <div class="col-sm-6">
+                        @foreach (App\Models\Massagecorner::take(5)->get() as $teacher)
+                        <div class="col-sm-4">
                             <div class="singel-teachers mt-30 text-center">
                                 <div class="image">
                                     <img src="{{asset('uploads/website/masagecorner')}}/{{$teacher->photo}}" alt="Teachers">
@@ -265,6 +262,7 @@ $emptyNewsmanage = $Newsmanage->isEmpty();
                             </div> <!-- singel teachers -->
                         </div>
                         @endforeach
+
                     </div> <!-- row -->
                 </div> <!-- teachers -->
             </div>

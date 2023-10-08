@@ -15,6 +15,7 @@
                             <div class="col-md-10 mb-3">
                                 <label for="">Menu <span>*</span></label>
                                  <input type="text" name="manu">
+                                 <input type="hidden" name="edit_id" value="{{$find_id->id}}">
                                     @error('manu')
                                     <strong class="text-danger">{{$message}}</strong>
                                     @enderror

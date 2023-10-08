@@ -36,7 +36,7 @@ class WebsiteModuleThreeController extends Controller
         $uploded_file = $request->file;
         $extentaion = $uploded_file->getClientOriginalExtension();
         $file_name = $ids . '.' . $extentaion;
-        Image::make($uploded_file)->resize(1200,400)->save(public_path('/uploads/website/gallerymanage/' . $file_name));
+        Image::make($uploded_file)->save(public_path('/uploads/website/gallerymanage/' . $file_name));
         Gallarymanag::find($ids)->update([
             'file' => $file_name,
         ]);
@@ -72,7 +72,7 @@ class WebsiteModuleThreeController extends Controller
             $uploded_file = $request->file;
             $extentaion = $uploded_file->getClientOriginalExtension();
             $file_name = $ids . '.' . $extentaion;
-            Image::make($uploded_file)->resize(1200,400)->save(public_path('/uploads/website/gallerymanage/' . $file_name));
+            Image::make($uploded_file)->save(public_path('/uploads/website/gallerymanage/' . $file_name));
             Gallarymanag::find($ids)->update([
                 'file' => $file_name,
             ]);

@@ -1,6 +1,6 @@
 @extends('layouts.AdminPanal')
 @section('content')
-@can('watch')
+
 <div class="u-body">
     <section class="es-form-area">
         <div class="card">
@@ -58,7 +58,7 @@
         </div>
     </section>
 </div>
-@endcan
+
 @endsection
 @section('fotter_js')
 <script>

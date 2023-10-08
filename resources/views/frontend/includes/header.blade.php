@@ -110,7 +110,9 @@
                                  </li>
                                  <li class="nav-item">
                                      <a href="{{route('about.index')}}">About Us</a>
-
+                                 </li>
+                                 <li class="nav-item">
+                                     <a href="{{route('teachers.index')}}">Teachers</a>
                                  </li>
                                  <li class="nav-item">
                                      <a href="{{route('braking.index')}}">Breaking News</a>
