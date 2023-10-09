@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class usefulllink extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'title','link',
+    ];
 }

@@ -757,7 +757,7 @@
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('breaking_news') }}">
-                                        <span class="u-sidebar-nav-menu__item-title">Breaking News</span>
+                                        <span class="u-sidebar-nav-menu__item-title">Admittion Setting</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item d-none">
@@ -815,9 +815,9 @@
                                         <span class="u-sidebar-nav-menu__item-title">Board Result List</span>
                                     </a>
                                 </li>
-                                <li class="u-sidebar-nav-menu__item d-none">
+                                <li class="u-sidebar-nav-menu__item">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manage_link') }}">
-                                        <span class="u-sidebar-nav-menu__item-title">Usefull Link List</span>
+                                        <span class="u-sidebar-nav-menu__item-title">Principal Speech</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">

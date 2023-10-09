@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('usefulllinks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link');
-            $table->string('status');
+            $table->text('link');
             $table->timestamps();
         });
     }

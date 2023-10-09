@@ -5,7 +5,7 @@
 
   @yield('frontend_style')
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navber">
     @include('frontend.includes.header')
 
 
@@ -18,5 +18,5 @@
 
 
      @yield('frontend_scrift')
-</body>
+</body >
 </html>

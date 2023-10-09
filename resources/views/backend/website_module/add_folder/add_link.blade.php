@@ -22,8 +22,8 @@
                             </div>
 
                             <div class="col-md-10 mb-3">
-                                <label for="">Url <span>*</span></label>
-                                <input type="text" name="link" id=""><br>
+                                <label for="">Speech <span>*</span></label>
+                                <textarea class="ckeditor" id="editor1" name="link" id="" cols="30" rows="10"></textarea> <br>
                                 @error('link')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror

@@ -14,7 +14,7 @@ Route::controller(StudentController::class)->prefix('/students')->group(function
     Route::get('/print-admission-form',"printForm")->name('students.print-admission-form');
 
    /// after finish all task
-    Route::post('/print/admission/form',"GeneratePdf")->name('print-admission-form');
+    
 
 
     Route::get('/current-students',"currentStudentList")->name('students.current-students');

@@ -23,25 +23,12 @@
                             </div>
 
                             <div class="col-md-10 mb-3">
-                                <label for="">Url <span>*</span></label>
-                                <input type="text" value="{{$findId->link}}" name="link" id=""><br>
+                                <label for="">Speech <span>*</span></label>
+                                <textarea class="ckeditor" id="editor1"  name="link" id="" cols="30" rows="10"></textarea> <br>
                                 @error('link')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror
                             </div>
-
-
-                            <div class="col-md-10 mb-3">
-                                <label for="">Status <span>*</span></label>
-                                <select name="status" id="">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                                @error('status')
-                                <strong class="text-danger">{{$message}}</strong>
-                                @enderror
-                            </div>
-
                             <div class="col-md-10 mt-4 mb-3">
                                 <p>
                                     <button type="submit" class="btn bg-gradient border-0 text-white">Create</button>

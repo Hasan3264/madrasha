@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('noticemanages', function (Blueprint $table) {
-            $table->dropColumn('pdf');
             $table->dropColumn('status');
         });
     }

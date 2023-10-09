@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\backend\WebsiteModule;
 
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use App\Models\Inputsocialmedia;
 use App\Models\Teachercontent;
@@ -27,12 +27,10 @@ class WebsiteModuleFiveController extends Controller
          $request->validate([
              'title' => ['required'],
              'link' => ['required'],
-             'status' => ['required'],
          ]);
           usefulllink::insert([
             'title' => $request->title,
             'link' => $request->link,
-            'status' => $request->status,
           ]);
           return redirect(route('manage_link'))->with('success', 'Update Successfully!');
      }
@@ -52,13 +50,11 @@ class WebsiteModuleFiveController extends Controller
           $request->validate([
              'title' => ['required'],
              'link' => ['required'],
-             'status' => ['required'],
          ]);
 
          usefulllink::findOrFail($request->edit_id)->update([
              'title' => $request->title,
             'link' => $request->link,
-            'status' => $request->status,
          ]);
         return redirect(route('manage_link'))->with('success', 'Update Successfully!');
      }

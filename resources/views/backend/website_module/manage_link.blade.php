@@ -8,7 +8,7 @@
             <div class="card">
                 <header class="card-header bg-gradient border-0 pt-5 pb-5 d-flex align-items-center">
                     <h2 class="text-white mb-0">
-                        Manage Link
+                        Manage Speech
                     </h2>
                 </header>
 
@@ -21,8 +21,7 @@
                                 <tr>
                                     <th scope="col">Srl</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Url</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Speech</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -33,7 +32,6 @@
                                     <th scope="row">{{$key+1}}</th>
                                     <td>{{$value->title}}</td>
                                     <td>{{$value->link}}</td>
-                                    <td>{{$value->status}}</td>
                                     <td>
                                         <a href="{{route('link_view', $value->id)}}"><i class="fa-solid fa-eye"></i></a>&nbsp &nbsp
                                         <a href="{{route('link_edit', $value->id)}}"><i class="fa-solid fa-pencil"></i></a>&nbsp &nbsp

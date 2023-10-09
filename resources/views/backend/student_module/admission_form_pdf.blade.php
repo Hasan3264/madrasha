@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<table width="98%" align="center" style="border-collapse:collapse; margin:2px auto; padding-top: 50px">
+<table width="98%" align="center" style="border-collapse:collapse; margin:2px auto; padding-top: 30px">
     <tr>
         <td style="width:1.5in; text-align:center;">
             <img src="{{ public_path('uploads/backend/logo/')}}/{{$institute->logo}}" height="140px" width="140px" alt="xccxvc" />
@@ -313,11 +313,9 @@
         </td>
     </tr>
     <br>
-    <br>
 
 </table>
 
-<br>
 <br>
 <table width="100%" cellpadding="0" cellspacing="0" border="0"
     style="border-collapse:collapse;margin-left: 50px; margin-top: 20px; ">

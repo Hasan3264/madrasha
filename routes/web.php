@@ -1,19 +1,20 @@
 <?php
 
 
-use App\Http\Controllers\backend\hr_module\{EmployeetypeController, DesignationController, WorkingShiftController, EmployeeController, TypeController};
-use App\Http\Controllers\backend\routine\RoutineController;
-use App\Http\Controllers\{ProfileController,TestimonialController, InstituteController, branchController, AcademicHolidayController,frontendController};
+use App\Models\apply;
+use App\Models\allsts;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\backend\routine\RoutineController;
+use App\Http\Controllers\ExamSetting\ExamsettingController;
 use App\Http\Controllers\Academic\AllsessionAcademicController;
 use App\Http\Controllers\backend\student_module\StudentController;
+use App\Http\Controllers\backend\WebsiteModule\WebsiteModuleFourController;
 use App\Http\Controllers\backend\finance_reports_module\FinanceReportsController;
+use App\Http\Controllers\backend\hr_module\{EmployeetypeController, DesignationController, WorkingShiftController, EmployeeController, TypeController};
+use App\Http\Controllers\{ProfileController,TestimonialController, InstituteController, branchController, AcademicHolidayController,frontendController};
 use App\Http\Controllers\backend\payroll_module\{PayrollHeadController, EmployeePayscaleController, EmployeesSalaryChartController, EmployeesSalaryController};
-use App\Http\Controllers\ExamSetting\ExamsettingController;
-use App\Models\allsts;
-use App\Models\apply;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,10 @@ Route::get('/boardOfdirector', [frontendController::class, 'boarddirector'])->na
 Route::get('/notice', [frontendController::class, 'notice'])->name('notice');
 //notice
 Route::get('/teachers', [frontendController::class, 'teachers'])->name('teachers.index');
-
+//notice
+Route::get('/princ/masage', [frontendController::class, 'princmasage'])->name('princ_masage');
+//pdf
+Route::post('/print/admission/form',[StudentController::class, 'GeneratePdf'])->name('print-admission-form');
 
 //deshboard start
 

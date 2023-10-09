@@ -94,7 +94,7 @@
          <div class="container">
              <div class="row">
                  <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-                     <nav class="navbar navbar-expand-lg">
+                     <nav id="navbar" class="navbar navbar-expand-lg">
                          <button class="navbar-toggler" type="button" data-toggle="collapse"
                              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                              aria-expanded="false" aria-label="Toggle navigation">
@@ -109,13 +109,14 @@
                                      <a class="active" href="{{url('/')}}">Home</a>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="{{route('about.index')}}">About Us</a>
+                                     <a>About Us</a>
+                                     <ul class="sub-menu">
+                                        <li><a href="{{route('teachers.index')}}">Teachers</a></li>
+                                        <li><a href="{{route('princ_masage')}}">Principal Massage</a></li>
+                                    </ul>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="{{route('teachers.index')}}">Teachers</a>
-                                 </li>
-                                 <li class="nav-item">
-                                     <a href="{{route('braking.index')}}">Breaking News</a>
+                                     <a href="{{route('braking.index')}}">Admittion</a>
                                  </li>
                                  <li class="nav-item">
                                      <a href="#">Result</a>
@@ -128,10 +129,14 @@
                                      <a href="#">Academic</a>
                                      <ul class="sub-menu">
                                          <li><a href="{{route('boarddirector')}}">Board Of Director</a></li>
+                                         <li><a href="{{route('about.index')}}">Academic Information</a></li>
                                      </ul>
                                  </li>
                                  <li class="nav-item">
                                      <a href="{{route('notice')}}">Notice</a>
+                                 </li>
+                                 <li class="nav-item">
+                                     <a href="">Contuct Us</a>
                                  </li>
                              </ul>
                          </div>

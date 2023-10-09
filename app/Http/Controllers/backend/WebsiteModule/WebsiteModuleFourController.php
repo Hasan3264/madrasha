@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\backend\WebsiteModule;
 
-use App\Http\Controllers\Controller;
 use App\Models\Boardresult;
 use App\Models\Brakingnews;
 use App\Models\Careermanage;
 use App\Models\Noticemanage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use PHPUnit\Framework\TestStatus\Notice;
 
 class WebsiteModuleFourController extends Controller
@@ -26,10 +28,21 @@ class WebsiteModuleFourController extends Controller
         $request->validate([
               'title' => ['required'],
               'notice' => ['required'],
+              'pdf' => ['required','mimes:jpeg,jpg,png']
         ]);
       $ids =  Noticemanage::insertGetId([
           'title' => $request->title,
           'notice' => $request->notice,
+          'pdf' => 'ok',
+        ]);
+
+        $uploded_file = $request->pdf;
+        $extentaion = $uploded_file->getClientOriginalExtension();
+        $file_name = $ids . '.' . $extentaion;
+        $uploded_file->move(public_path('/uploads/website/noticepdf/'), $file_name);
+
+        Noticemanage::find($ids)->update([
+            'pdf' => $file_name,
         ]);
         return redirect(route('manage_notice'))->with('success', 'Inserted Successfully!');
     }
@@ -43,13 +56,28 @@ class WebsiteModuleFourController extends Controller
             $request->validate([
              'title' => ['required'],
               'notice' => ['required'],
+              'pdf' => ['required','mimes:jpez,jpg,png'],
         ]);
         Noticemanage::findOrFail($request->edit_id)->update([
             'title' => $request->title,
           'notice' => $request->notice,
         ]);
+        $ids = $request->edit_id;
+           $massaes= Noticemanage::find($ids);
+           $delete_from=public_path('/uploads/website/noticepdf/'. $massaes->pdf);
+           unlink($delete_from);
+
+        $uploded_file = $request->pdf;
+        $extentaion = $uploded_file->getClientOriginalExtension();
+        $file_name = $ids . '.' . $extentaion;
+        $uploded_file->move(public_path('/uploads/website/noticepdf/'), $file_name);
+
+         Noticemanage::find($ids)->update([
+            'pdf' => $file_name,
+        ]);
         return redirect(route('manage_notice'))->with('success', 'Inserted Successfully!');
     }
+
 
 
      public function DeleteNotice(Request $request){
@@ -64,12 +92,6 @@ class WebsiteModuleFourController extends Controller
             'findId' => $findId,
           ]);
     }
-
-
-
-
-
-
     public function manageCareer(){
         $career = Careermanage::all();
         return view('backend.website_module.manage_career',[

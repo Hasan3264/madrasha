@@ -53,7 +53,7 @@
 
     </div>
 </div>
-   @endcan
+@endcan
 @endsection
 @section('fotter_js')
 <script>
