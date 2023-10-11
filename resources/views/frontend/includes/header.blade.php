@@ -133,10 +133,14 @@
                                      </ul>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="{{route('notice')}}">Notice</a>
+                                     <a href="">Notice</a>
+                                     <ul class="sub-menu">
+                                        <li><a href="{{route('notice')}}">Notice</a></li>
+                                        <li><a href="{{route('Routine')}}">Exam Routine</a></li>
+                                    </ul>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="">Contuct Us</a>
+                                     <a href= "{{route('Contuct.Us')}}">Contuct Us</a>
                                  </li>
                              </ul>
                          </div>

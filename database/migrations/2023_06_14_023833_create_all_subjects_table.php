@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('medium_id');
             $table->unsignedBigInteger('class_id');
             $table->string('name');
-            $table->integer('code');
+            $table->integer('code')->nullable();
             $table->timestamps();
         });
     }

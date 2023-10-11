@@ -44,7 +44,6 @@ class AllSubjectController extends Controller
         'medium_id' => ['required'],
         'class_id' => ['integer','required'],
         'name' => ['required'],
-        'code' => ['required','integer','unique:all_subjects'],
     ];
 
    public function Storesubject(Request $request){

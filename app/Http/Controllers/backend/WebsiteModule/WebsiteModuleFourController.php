@@ -8,12 +8,94 @@ use App\Models\Careermanage;
 use App\Models\Noticemanage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\examroutine;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use PHPUnit\Framework\TestStatus\Notice;
 
 class WebsiteModuleFourController extends Controller
 {
+    public function manageEr(){
+        $notiese = examroutine::all();
+       return view('backend.website_module.examRoutine',[
+           'noties' => $notiese,
+       ]);
+   }
+
+    public function addExamRoutine(){
+        return view('backend.website_module.add_folder.add_examroutine');
+    }
+
+    public function insertER(Request $request){
+        $request->validate([
+              'title' => ['required'],
+              'description' => ['required'],
+              'file' => ['required','mimes:jpeg,jpg,png']
+        ]);
+      $ids =  examroutine::insertGetId([
+          'title' => $request->title,
+          'description' => $request->description,
+          'file' => 'ok',
+        ]);
+
+        $uploded_file = $request->file;
+        $extentaion = $uploded_file->getClientOriginalExtension();
+        $file_name = $ids . '.' . $extentaion;
+        $uploded_file->move(public_path('/uploads/website/examRoutine/'), $file_name);
+
+        examroutine::find($ids)->update([
+            'file' => $file_name,
+        ]);
+        return redirect(route('manage_Er'))->with('success', 'Inserted Successfully!');
+    }
+
+    public function EditER($id){
+       $findId = examroutine::findOrFail($id);
+       return view('backend.website_module.edit.add_examroutine',[
+         'findId' => $findId
+       ]);
+    }
+
+
+
+
+    public function UpdateEr(Request $request){
+        $request->validate([
+            'title' => ['required'],
+            'description' => ['required'],
+            'file' => ['required','mimes:jpeg,jpg,png']
+      ]);
+       examroutine ::findOrFail($request->edit_id)->update([
+            'title' => $request->title,
+          'description' => $request->description,
+        ]);
+        $ids = $request->edit_id;
+           $massaes= examroutine::find($ids);
+           $delete_from=public_path('/uploads/website/examRoutine/'. $massaes->file);
+           unlink($delete_from);
+
+        $uploded_file = $request->file;
+        $extentaion = $uploded_file->getClientOriginalExtension();
+        $file_name = $ids . '.' . $extentaion;
+        $uploded_file->move(public_path('/uploads/website/examRoutine/'), $file_name);
+
+        examroutine::find($ids)->update([
+            'file' => $file_name,
+        ]);
+        return redirect(route('manage_Er'))->with('success', 'Inserted Successfully!');
+    }
+
+    public function DeleteER(Request $request){
+        $ids = $request->del_id;
+           $massaes= examroutine::find($ids);
+           $delete_from=public_path('/uploads/website/examRoutine/'. $massaes->file);
+           unlink($delete_from);
+        examroutine::findOrFail($request->del_id)->delete();
+        return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
+     }
+    //exam routine endpoint
+
+    //manage notice start procedure
     public function manageNotice(){
          $noties = Noticemanage::all();
         return view('backend.website_module.manage_notice',[
@@ -46,6 +128,7 @@ class WebsiteModuleFourController extends Controller
         ]);
         return redirect(route('manage_notice'))->with('success', 'Inserted Successfully!');
     }
+
     public function EditNotice($id){
        $findId = Noticemanage::findOrFail($id);
        return view('backend.website_module.edit.add_notice',[
@@ -81,6 +164,10 @@ class WebsiteModuleFourController extends Controller
 
 
      public function DeleteNotice(Request $request){
+        $ids = $request->del_id;
+           $massaes= Noticemanage::find($ids);
+           $delete_from=public_path('/uploads/website/noticepdf/'. $massaes->pdf);
+           unlink($delete_from);
         Noticemanage::findOrFail($request->del_id)->delete();
         return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
      }

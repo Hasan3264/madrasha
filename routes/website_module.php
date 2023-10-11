@@ -125,6 +125,15 @@ Route::post('/Insert/notice', [WebsiteModuleFourController::class, 'InsertNotice
 Route::post('/Update/notice', [WebsiteModuleFourController::class, 'UpdateNotice'])->name('update.notice');
 Route::post('/Delete/notice', [WebsiteModuleFourController::class, 'DeleteNotice'])->name('delete.notice');
 
+//Route of WebsiteModuleFourController
+//manage notice controller
+Route::get('/manage/manageEr', [WebsiteModuleFourController::class, 'manageEr'])->name('manage_Er');
+Route::get('/add/examroutine', [WebsiteModuleFourController::class, 'addExamRoutine'])->name('add_examroutine');
+Route::get('/Edit/Er/{id}', [WebsiteModuleFourController::class, 'EditER'])->name('routineE.edit');
+Route::post('/Insert/Routine', [WebsiteModuleFourController::class, 'insertER'])->name('insert.Examroutine');
+Route::post('/Update/ER', [WebsiteModuleFourController::class, 'UpdateEr'])->name('update.Examroutine');
+Route::post('/Delete/er', [WebsiteModuleFourController::class, 'DeleteER'])->name('delete.DeleteER');
+
 
 
 //careear part start

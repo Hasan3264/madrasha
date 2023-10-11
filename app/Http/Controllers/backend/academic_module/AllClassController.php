@@ -33,13 +33,6 @@ class AllClassController extends Controller
     public function StoreClass(Request $request)
     {
 
-
-        $request->validate([
-            'class_code' => 'required|regex:/\b\d{2}\b/',
-        ], [
-            'product_code.required' => 'Product code Must Be Unique'
-        ]);
-
         AllClass::insert([
             'medium_name' => $request->medium_name,
             'class_name' => $request->class_name,

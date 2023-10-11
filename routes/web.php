@@ -57,6 +57,11 @@ Route::get('/notice', [frontendController::class, 'notice'])->name('notice');
 Route::get('/teachers', [frontendController::class, 'teachers'])->name('teachers.index');
 //notice
 Route::get('/princ/masage', [frontendController::class, 'princmasage'])->name('princ_masage');
+//notice
+Route::get('/Routine', [frontendController::class, 'RoutineIn'])->name('Routine');
+
+//notice
+Route::get('/ContuctUs', [frontendController::class, 'ContuctUs'])->name('Contuct.Us');
 //pdf
 Route::post('/print/admission/form',[StudentController::class, 'GeneratePdf'])->name('print-admission-form');
 

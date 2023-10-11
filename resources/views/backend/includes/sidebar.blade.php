@@ -130,7 +130,7 @@
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="#!" data-target="#questions">
                                 <i class="fa-solid fa-table u-sidebar-nav-menu__item-icon"></i>
-                                <span class="u-sidebar-nav-menu__item-title">Routine Module</span>
+                                <span class="u-sidebar-nav-menu__item-title">Class Routine Module</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
@@ -803,6 +803,11 @@
                                 <li class="u-sidebar-nav-menu__item">
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manage_notice') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Notice List</span>
+                                    </a>
+                                </li>
+                                <li class="u-sidebar-nav-menu__item">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_Er') }}">
+                                        <span class="u-sidebar-nav-menu__item-title">Add Exam Routine</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">

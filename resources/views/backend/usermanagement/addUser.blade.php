@@ -76,10 +76,10 @@
             return false;
         }
 
-        else if (branch === '') {
-            Swal.fire('Plase Select Branch')
-            return false;
-        }
+        // else if (branch === '') {
+        //     Swal.fire('Plase Select Branch')
+        //     return false;
+        // }
          else if ($('#username').val() == '') {
             Swal.fire('Plase Fill Up Username')
             return false;
@@ -96,10 +96,10 @@
             Swal.fire('Plase Match Password')
             return false;
         }
-        else if ($('#confirmpassword').val() != $('#password').val()){
-            Swal.fire('Plase Match Password')
-            return false;
-        }
+        // else if ($('#confirmpassword').val() != $('#password').val()){
+        //     Swal.fire('Plase Match Password')
+        //     return false;
+        // }
         else {
             $.ajaxSetup({
                 headers: {
@@ -121,7 +121,7 @@
                         $("#InsertSubForm")[0].reset();
                     }else{
                           Swal.fire(
-                            'error!',
+                            'error! Something went wrong',
                             data.errors,
                             'error'
                         )

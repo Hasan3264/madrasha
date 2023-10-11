@@ -17,9 +17,6 @@ return new class extends Migration
             $table->string('shift_name');
             $table->string('start_time');
             $table->string('end_time');
-            $table->string('green_limit');
-            $table->string('orange_limit');
-            $table->string('red_limit');
             $table->string('status')->default('active');
             $table->timestamps();
         });

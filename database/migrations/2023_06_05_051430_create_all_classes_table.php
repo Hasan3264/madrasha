@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('medium_name');
             $table->string('class_name');
-            $table->string('class_code');
+            $table->string('class_code')->nullable();
             $table->timestamps();
         });
     }
