@@ -16,6 +16,9 @@ use App\Http\Controllers\backend\hr_module\{EmployeetypeController, DesignationC
 use App\Http\Controllers\{ProfileController,TestimonialController, InstituteController, branchController, AcademicHolidayController,frontendController};
 use App\Http\Controllers\backend\payroll_module\{PayrollHeadController, EmployeePayscaleController, EmployeesSalaryChartController, EmployeesSalaryController};
 
+
+// ADEVBY10112012020
+// logAbedhaimin
 /*
 |--------------------------------------------------------------------------
 | Web Routes
